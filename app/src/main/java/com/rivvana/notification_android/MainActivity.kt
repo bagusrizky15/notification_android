@@ -46,4 +46,16 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onStart() {
+        super.onStart()
+        val builder = NotificationCompat.Builder(this,BaseApplication.CHANNEL_1_ID)
+            .setSmallIcon(R.drawable.ic_fav)
+            .setContentTitle("Selamat!")
+            .setContentText("Kamu berhasil Login")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+
+        val notification = builder.build()
+        notificationManager.notify(3, notification)
+    }
 }
